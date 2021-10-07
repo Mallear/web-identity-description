@@ -47,7 +47,7 @@ class FingerPrint():
 
     @property
     def client_ip(self):
-        return self.request.remote_addr
+        return self.request.headers.get('X-Forwarded-For')
 
     @property
     def browser_version(self):
