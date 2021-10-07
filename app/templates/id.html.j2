@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyDigitalIdentity</title>
+    <link
+      href="{{ url_for('static', filename='fontawesome/css/all.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div>
+      <div id="title">
+        <h1>Ma carte d'identité numérique</h1>
+      </div>
+
+      <div id="device">
+        <p>Marque : {{ fp.device.brand }}</p>
+        <p>Model : {{ fp.device.model }}</p>
+        <p>OS : {{ fp.os.family }}</p>
+        <p>Version : {{ fp.os.version }}</p>
+      </div>
+
+      <div id="browser-config">
+        <p>
+          Do Not Track : {% if fp.do_not_track %}<i
+            class="fas fa-check-square"
+            style="color: green"
+          ></i
+          >{% else %}<i class="fad fa-times-square" style="color: red"></i
+          >{%endif%}
+        </p>
+        <p>
+          Navigation sécurisée forcée (https) : {% if
+          fp.upgrade_insecure_requests %}<i
+            class="fas fa-check-square"
+            style="color: green"
+          ></i
+          >{% else %}<i class="fad fa-times-square" style="color: red"></i
+          >{%endif%}
+        </p>
+      </div>
+
+      <div id="ip-geoloc">
+        <p>IP : {{ fp.geolocalisation.query }}</p>
+        <p>Pays : {{ fp.geolocalisation.country }}</p>
+        <p>Region : {{ fp.geolocalisation.regionName }}</p>
+        <p>Ville : {{ fp.geolocalisation.city }}</p>
+        <p>Code postal : {{ fp.geolocalisation.zip }}</p>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/clipboard.js') }}"></script>
+  </body>
+</html>
