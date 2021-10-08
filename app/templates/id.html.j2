@@ -25,7 +25,7 @@
       class="col-11 border border-light rounded shadow-sm mx-auto my-3"
     >
       <div id="title" class="grid-item col-11 mx-auto my-3">
-        <h1>Ma carte d'identité numérique</h1>
+        <h1>Qui suis-je sur internet ?</h1>
       </div>
 
       <div id="device" class="grid-item col-11 mx-auto my-3">
@@ -74,6 +74,48 @@
         <p>Contenu du presse-papiers :</p>
         <p id="clipboard" style="color: red"></p>
       </div>
+    </div>
+
+    <div
+      id="description"
+      class="col-11 border border-light rounded shadow-sm mx-auto my-3"
+    >
+      <h2 class="col-11 mx-auto my-3">Qu'est-ce que cette fiche ?</h2>
+      <p class="col-11 mx-auto my-3">
+        Ces informations sont une petite partie des informations récupérées par
+        votre navigateur et permettent de créer votre profile de visiteur. Ce
+        profile permet aux sites de vous identifier en tant que visiteur unique
+        et même de suivre votre navigation sur internet. Ce procédé peut être
+        complété par le dépôt de cookie pour une identification plus précise.
+      </p>
+      <p class="col-11 mx-auto my-3">
+        La connaissance de l'existence de ces mécanismes permet d'améliorer son
+        hygiène numérique.
+      </p>
+      <p class="col-11 mx-auto my-3">
+        Pour plus d'informations sur l'hygiène numérique et un calcul plus
+        complet de votre empreinte numérique :
+      </p>
+      <ul class="col-11 mx-auto my-3">
+        <li><a href="https://amiunique.org">https://amiunique.org</a></li>
+        <li>
+          <a
+            href="https://framablog.org/2014/12/23/si-on-brouillait-les-pistes-avec-amiunique/"
+            >https://framablog.org/2014/12/23/si-on-brouillait-les-pistes-avec-amiunique/
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      id="disclaimer"
+      class="col-11 border border-light rounded shadow-sm mx-auto my-3"
+    >
+      <h2 class="col-11 mx-auto my-3">Disclaimer</h2>
+      <p class="col-11 mx-auto my-3">
+        Aucune des ces informations n'est stockée par ce site. Ce site n'existe
+        qu'à une fin de sensibilisation à l'hygiène numérique.
+      </p>
     </div>
 
     <script src="{{ url_for('static', filename='js/clipboard.js') }}"></script>
