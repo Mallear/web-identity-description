@@ -24,7 +24,7 @@ kind: Service
 metadata:
   name: service-digital-identity-check
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80

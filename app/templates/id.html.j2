@@ -4,18 +4,32 @@
     <meta charset="UTF-8" />
     <title>MyDigitalIdentity</title>
     <link
+      href="{{ url_for('static', filename='css/identity-card.css') }}"
+      rel="stylesheet"
+    />
+    <link
       href="{{ url_for('static', filename='fontawesome/css/all.css') }}"
       rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
     />
   </head>
 
   <body>
-    <div>
-      <div id="title">
+    <div
+      id="card"
+      class="col-11 border border-light rounded shadow-sm mx-auto my-3"
+    >
+      <div id="title" class="grid-item col-11 mx-auto my-3">
         <h1>Ma carte d'identité numérique</h1>
       </div>
 
-      <div id="device">
+      <div id="device" class="grid-item col-11 mx-auto my-3">
+        <h2>Profile de l'appareil</h2>
         <p>Marque : {{ fp.device.brand }}</p>
         <p>Model : {{ fp.device.model }}</p>
         <p>OS : {{ fp.os.family }}</p>
@@ -23,7 +37,8 @@
         <p id="screen-size">Taille de l'écran :</p>
       </div>
 
-      <div id="browser-config">
+      <div id="browser-config" class="grid-item col-11 mx-auto my-3">
+        <h2>Profile du navigateur</h2>
         <p>Navigateur : {{ fp.browser.family }}</p>
         <p>Version : {{ fp.browser.version }}</p>
         <p>
@@ -45,7 +60,8 @@
         </p>
       </div>
 
-      <div id="ip-geoloc">
+      <div id="ip-geoloc" class="grid-item col-11 mx-auto my-3">
+        <h2>Géolocalisation</h2>
         <p>IP : {{ fp.geolocalisation.query }}</p>
         <p>Pays : {{ fp.geolocalisation.country }}</p>
         <p>Region : {{ fp.geolocalisation.regionName }}</p>
@@ -53,7 +69,8 @@
         <p>Code postal : {{ fp.geolocalisation.zip }}</p>
       </div>
 
-      <div id="other">
+      <div id="other" class="grid-item col-11 mx-auto my-3">
+        <h2>Informations complémentaires</h2>
         <p>Contenu du presse-papiers :</p>
         <p id="clipboard" style="color: red"></p>
       </div>

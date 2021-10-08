@@ -1,0 +1,33 @@
+/* Button grid items */
+
+#card {
+  display: grid;
+  grid-template-columns: auto;
+  padding: 10px;
+}
+
+.grid-item {
+  margin: 10px;
+  width: 80%;
+}
+
+#title {
+  grid-column: 1/2;
+  grid-row: 1;
+}
+#device {
+  grid-column: 1;
+  grid-row: 2;
+}
+#browser-config {
+  grid-column: 2;
+  grid-row: 2;
+}
+#ip-geoloc {
+  grid-column: 1/2;
+  grid-row: 3;
+}
+#other {
+  grid-column: 1/2;
+  grid-row: 4;
+}
