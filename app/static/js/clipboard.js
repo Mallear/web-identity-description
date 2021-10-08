@@ -8,5 +8,8 @@ try {
   );
 } catch (error) {
   console.error(error);
-  document.querySelector("#clipboard").innerText = "Congratulations, we cannot read your clipboard !"
+  document.querySelector("#clipboard").innerText = " Le contenu du presse-papier n'est pas accessible."
+  document.querySelector("#clipboard").style.color = "green"
 }
+
+document.querySelector("#screen-size").innerText += window.screen.width + "x" + window.screen.height

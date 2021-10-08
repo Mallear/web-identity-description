@@ -20,24 +20,27 @@
         <p>Model : {{ fp.device.model }}</p>
         <p>OS : {{ fp.os.family }}</p>
         <p>Version : {{ fp.os.version }}</p>
+        <p id="screen-size">Taille de l'écran :</p>
       </div>
 
       <div id="browser-config">
+        <p>Navigateur : {{ fp.browser.family }}</p>
+        <p>Version : {{ fp.browser.version }}</p>
         <p>
           Do Not Track : {% if fp.do_not_track %}<i
-            class="fas fa-check-square"
+            class="fas fa-check-square fa-lg"
             style="color: green"
           ></i
-          >{% else %}<i class="fad fa-times-square" style="color: red"></i
+          >{% else %}<i class="fas fa-ban fa-lg" style="color: red"></i
           >{%endif%}
         </p>
         <p>
           Navigation sécurisée forcée (https) : {% if
           fp.upgrade_insecure_requests %}<i
-            class="fas fa-check-square"
+            class="fas fa-check-square fa-lg"
             style="color: green"
           ></i
-          >{% else %}<i class="fad fa-times-square" style="color: red"></i
+          >{% else %}<i class="fas fa-ban fa-lg" style="color: red"></i
           >{%endif%}
         </p>
       </div>
@@ -48,6 +51,11 @@
         <p>Region : {{ fp.geolocalisation.regionName }}</p>
         <p>Ville : {{ fp.geolocalisation.city }}</p>
         <p>Code postal : {{ fp.geolocalisation.zip }}</p>
+      </div>
+
+      <div id="other">
+        <p>Contenu du presse-papiers :</p>
+        <p id="clipboard" style="color: red"></p>
       </div>
     </div>
 

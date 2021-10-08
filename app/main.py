@@ -19,7 +19,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def timer():
     fp = FingerPrint(request)
-    logger.info(fp.client_ip)
+    logger.info(fp.request)
     return render_template("id.html.j2", fp=fp)
 
 

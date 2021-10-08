@@ -2,6 +2,14 @@ from ua_parser import user_agent_parser
 from werkzeug.utils import cached_property
 from flask import request
 import requests
+import logging
+
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s %(name)-12s %(levelname)-8s %(message)s"
+)
+logger = logging.getLogger(__name__)
+logging.getLogger("googleapiclient.discovery").setLevel(logging.WARNING)
+logging.getLogger("googleapiclient.discovery_cache").setLevel(logging.ERROR)
 
 
 class FingerPrint():
@@ -24,14 +32,22 @@ class FingerPrint():
     @property
     def os(self):
         os = self._details['os']
-        os['version'] = f"{os['major']}.{os['minor']}"
+        os['version'] = f"{os['major']}"
+        if not os['minor'] == None:
+            os['version'] = f"{os['version']}.{os['minor']}"
         if not os['patch'] == None:
             os['version'] = f"{os['version']}.{os['patch']}"
         return os
 
     @property
     def browser(self):
-        return self._details['user_agent']
+        browser = self._details['user_agent']
+        browser['version'] = f"{browser['major']}"
+        if not browser['minor'] == None:
+            browser['version'] = f"{browser['version']}.{browser['minor']}"
+        if not browser['patch'] == None:
+            browser['version'] = f"{browser['version']}.{browser['patch']}"
+        return browser
 
     @property
     def browser_language(self):
@@ -39,7 +55,12 @@ class FingerPrint():
 
     @property
     def do_not_track(self):
-        return self.request.headers.get('DNT')
+        logger.info(self.request.headers.get('DNT'))
+        if self.request.headers.get('DNT') == None:
+            logger.info("Return False")
+            return 0
+        else:
+            return self.request.headers.get('DNT')
 
     @property
     def upgrade_insecure_requests(self):
@@ -47,7 +68,11 @@ class FingerPrint():
 
     @property
     def client_ip(self):
-        return self.request.headers.get('X-Forwarded-For')
+        ip = self.request.remote_addr
+        # Manage localdev
+        if not ip.startswith("172"):
+            ip = self.request.headers.get('X-Forwarded-For')
+        return ip
 
     @property
     def browser_version(self):
