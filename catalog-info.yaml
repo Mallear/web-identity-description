@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: web-identity-description
+  annotations:
+    github.com/project-slug: Mallear/web-identity-description
+spec:
+  type: other
+  lifecycle: unknown
+  owner: guests
